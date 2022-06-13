@@ -4,7 +4,6 @@ class Game {
         this.height = height;
         this.currPlayer = p1;
         this.players = [p1,p2];
-        console.log(this.width);
         this.makeBoard();
         this.makeHTMLBoard();
         this.gameOver = false;
@@ -22,9 +21,7 @@ class Game {
         top.setAttribute('id', 'column-top');
         this.handleGameClick = this.handleClick.bind(this);
         top.addEventListener('click', this.handleGameClick);
-        console.log(this.width);
         for(let x = 0; x < this.width; x++){
-            console.log('im working');
             const headCell = document.createElement('td');
             headCell.setAttribute('id', x);
             top.append(headCell);
@@ -113,11 +110,10 @@ class Player{
     }
 }
 
-document.getElementById('start-game').addEventListener('click', function(e){
-    console.log(e)
+document.getElementById('start-game').addEventListener('click', function(){
     let p1 = new Player(document.getElementById('p1-color').value);
     let p2 = new Player(document.getElementById('p2-color').value);
-    new Game(6,7 , p1,p2);
+    new Game(6,7, p1,p2);
 })
 
 
